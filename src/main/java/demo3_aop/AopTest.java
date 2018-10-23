@@ -6,8 +6,8 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 public class AopTest {
 	public static void main(String[] args) {
-		ApplicationContext context = new ClassPathXmlApplicationContext("classpath:spring-demo-context.xml");
-		ATest bean = (ATest)context.getBean("aopTest");
+		ApplicationContext context = new ClassPathXmlApplicationContext("spring-demo-context.xml");
+		ATest bean = context.getBean("aopTest" , ATest.class);
 		bean.doSomething();
 	}
 }

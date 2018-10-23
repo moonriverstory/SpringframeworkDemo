@@ -10,17 +10,19 @@
 
 
 	<!-- demo3 -->
-
+	<!--目标对象-->
+	<bean id="aopTest" class="demo3_aop.aop.ATest"/>
+	<!--切面-->
+	<bean id="aspect" class="demo3_aop.Aspect"/>
+	<!--配置切入点-->
 	<aop:config>
-		<aop:aspect id="TestAspect" ref="aspect">
-			<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop.*.*(..))"/>
+		<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop.*.*(..))"/>
+		<aop:aspect ref="aspect">
 			<aop:before method="doBefore" pointcut-ref="pointcut"/>
+			<aop:after method="doAfter" pointcut-ref="pointcut"/>
 		</aop:aspect>
 	</aop:config>
 
-	<bean id="aspect" class="demo3_aop.Aspect"/>
-
-	<bean id="aopTest" class="demo3_aop.aop.ATest"/>
 	<!-- demo3 -->
 
 </beans>
