@@ -1,6 +1,6 @@
 package demo3_aop;
 
-import demo3_aop.aop.ATest;
+import demo3_aop.aop.impl.ATest;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 

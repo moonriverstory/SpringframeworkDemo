@@ -10,16 +10,20 @@
 
 
 	<!-- demo3 -->
+
 	<!--目标对象-->
-	<bean id="aopTest" class="demo3_aop.aop.ATest"/>
+	<bean id="aopTest" class="demo3_aop.aop.impl.ATest"/>
 	<!--切面-->
-	<bean id="aspect" class="demo3_aop.Aspect"/>
+	<bean id="aspectBean" class="demo3_aop.AopAspect"/>
 	<!--配置切入点-->
-	<aop:config>
-		<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop.*.*(..))"/>
-		<aop:aspect ref="aspect">
-			<aop:before method="doBefore" pointcut-ref="pointcut"/>
-			<aop:after method="doAfter" pointcut-ref="pointcut"/>
+	<aop:config proxy-target-class="false">
+		<aop:aspect ref="aspectBean">
+			<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop.impl.ATest..*(..))"/>
+			<aop:before pointcut-ref="pointcut" method="doPPBefore" />
+			<aop:after pointcut-ref="pointcut" method="doPPAfter" />
+			<aop:around pointcut-ref="pointcut" method="doAround"/>
+			<aop:after-returning pointcut-ref="pointcut"  method="doAfterReturning" returning="result"/>
+			<aop:after-throwing pointcut-ref="pointcut" method="doAfterThrowing" throwing="ex"/>
 		</aop:aspect>
 	</aop:config>
 
