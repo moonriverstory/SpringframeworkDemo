@@ -1,4 +1,4 @@
-package demo3_aop;
+package demo3_aop.aop.aspect;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.ProceedingJoinPoint;

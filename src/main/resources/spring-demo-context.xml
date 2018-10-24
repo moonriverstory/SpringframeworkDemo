@@ -12,13 +12,13 @@
 	<!-- demo3 -->
 
 	<!--目标对象-->
-	<bean id="aopTest" class="demo3_aop.aop.impl.ATest"/>
+	<bean id="person" class="demo3_aop.aop.impl.PersonServiceImpl"/>
 	<!--切面-->
-	<bean id="aspectBean" class="demo3_aop.AopAspect"/>
+	<bean id="aspectBean" class="demo3_aop.aop.aspect.AopAspect"/>
 	<!--配置切入点-->
 	<aop:config proxy-target-class="false">
 		<aop:aspect ref="aspectBean">
-			<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop.impl.ATest..*(..))"/>
+			<aop:pointcut id="pointcut" expression="execution(* demo3_aop.aop..*.*(..))"/>
 			<aop:before pointcut-ref="pointcut" method="doPPBefore" />
 			<aop:after pointcut-ref="pointcut" method="doPPAfter" />
 			<aop:around pointcut-ref="pointcut" method="doAround"/>
