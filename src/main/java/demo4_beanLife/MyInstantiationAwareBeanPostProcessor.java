@@ -1,6 +1,7 @@
 package demo4_beanLife;
 
 import org.springframework.beans.BeansException;
+import org.springframework.beans.PropertyValue;
 import org.springframework.beans.PropertyValues;
 import org.springframework.beans.factory.config.InstantiationAwareBeanPostProcessorAdapter;
 
@@ -33,8 +34,13 @@ public class MyInstantiationAwareBeanPostProcessor extends
     public PropertyValues postProcessPropertyValues(PropertyValues pvs, PropertyDescriptor[] pds, Object bean, String beanName) throws BeansException {
         System.out.println("InstantiationAwareBeanPostProcessor调用postProcessPropertyValues方法");
         PropertyValues old = pvs;
-        //pvs.getPropertyValue("name").setConvertedValue("dfgg");//可以改变原有属性
-        System.err.println(pvs.changesSince(old));//检查改变了什么,貌似没有什么作用啊
+        PropertyValue nameProperty = pvs.getPropertyValue("name");
+
+        if (nameProperty != null) {
+            nameProperty.setConvertedValue("dfgg");//可以改变原有属性
+        }
+
+        System.err.println("after setConvertedValue: " + pvs.changesSince(old).toString());//检查改变了什么,貌似没有什么作用啊
 
         return pvs;
     }
