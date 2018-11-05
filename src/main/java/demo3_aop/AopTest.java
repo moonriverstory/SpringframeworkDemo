@@ -11,7 +11,7 @@ public class AopTest {
 
 	public static void main(String[] args) {
 		ApplicationContext context = new ClassPathXmlApplicationContext("spring-demo-context.xml");
-		PersonService bean = context.getBean("person" , PersonService.class);
+		PersonService bean = context.getBean("personService" , PersonService.class);
 		bean.save();
 		System.out.println("is cglib proxy: "+ ClassUtils.isCglibProxy(bean));
 		System.out.println("is jdk proxy: " + Proxy.isProxyClass(bean.getClass()));
