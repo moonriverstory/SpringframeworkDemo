@@ -3,6 +3,10 @@ package demo4_beanLife;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.config.BeanPostProcessor;
 
+/**
+ * BeanPostProcessor接口包括2个方法postProcessAfterInitialization和postProcessBeforeInitialization，
+ * 这两个方法的第一个参数都是要处理的Bean对象，第二个参数都是Bean的name。返回值也都是要处理的Bean对象。
+ */
 public class MyBeanPostProcessor implements BeanPostProcessor {
 
     public MyBeanPostProcessor() {

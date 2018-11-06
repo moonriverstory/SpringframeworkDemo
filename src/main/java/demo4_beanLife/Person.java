@@ -3,6 +3,11 @@ package demo4_beanLife;
 import org.springframework.beans.BeansException;
 import org.springframework.beans.factory.*;
 
+/**
+ * 简单的Spring Bean，调用Bean自身的方法和Bean级生命周期接口方法，
+ * 它实现了BeanNameAware、BeanFactoryAware、InitializingBean和DiposableBean这4个接口，
+ * 同时有2个方法，对应配置文件中<bean>的init-method和destroy-method
+ */
 public class Person implements BeanFactoryAware, BeanNameAware,
         InitializingBean, DisposableBean {
 

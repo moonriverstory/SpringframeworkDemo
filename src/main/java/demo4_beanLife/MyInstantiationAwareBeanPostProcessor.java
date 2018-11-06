@@ -7,6 +7,9 @@ import org.springframework.beans.factory.config.InstantiationAwareBeanPostProces
 
 import java.beans.PropertyDescriptor;
 
+/**
+ * InstantiationAwareBeanPostProcessor 接口本质是BeanPostProcessor的子接口
+ */
 public class MyInstantiationAwareBeanPostProcessor extends
         InstantiationAwareBeanPostProcessorAdapter {
 
