@@ -38,4 +38,8 @@
           p:name="张三" p:address="广州" p:phone="139"/>
     <!-- demo4 end-->
 
+    <!-- demo5 begin-->
+    <bean id="testBeanService" class="demo5_ioc_di.TestBeanServiceImpl"/>
+    <!-- demo5 end-->
+
 </beans>
